@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - '8'
+services:
+  - docker
+install:
+  - yarn --ignore-engines
+  - docker pull mysql:5
+script:
+  - yarn test
+  - docker build -t wsflare/ws-flare-jobs-api:$TRAVIS_BUILD_NUMBER .
+deploy:
+  - provider: script
+    script: docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD" && docker push wsflare/ws-flare-jobs-api
+    on:
+      branch: master
