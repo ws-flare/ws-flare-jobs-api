@@ -34,6 +34,24 @@ export class Node extends Entity {
     })
     running: boolean;
 
+    @property({
+        type: 'number',
+        required: false,
+    })
+    totalSuccessfulConnections: number;
+
+    @property({
+        type: 'number',
+        required: false,
+    })
+    totalFailedConnections: number;
+
+    @property({
+        type: 'number',
+        required: false,
+    })
+    totalDroppedConnections: number;
+
     constructor(data?: Partial<Node>) {
         super(data);
     }
