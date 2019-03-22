@@ -28,6 +28,12 @@ export class Node extends Entity {
     })
     name: string;
 
+    @property({
+        type: 'boolean',
+        required: true,
+    })
+    running: boolean;
+
     constructor(data?: Partial<Node>) {
         super(data);
     }
