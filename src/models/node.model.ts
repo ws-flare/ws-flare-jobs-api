@@ -37,18 +37,21 @@ export class Node extends Entity {
     @property({
         type: 'number',
         required: false,
+        default: 0
     })
     totalSuccessfulConnections: number;
 
     @property({
         type: 'number',
         required: false,
+        default: 0
     })
     totalFailedConnections: number;
 
     @property({
         type: 'number',
         required: false,
+        default: 0
     })
     totalDroppedConnections: number;
 

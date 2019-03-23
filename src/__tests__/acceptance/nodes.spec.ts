@@ -30,6 +30,9 @@ describe('Nodes', () => {
         expect(res.body.jobId).to.eql('abc123');
         expect(res.body.name).to.eql('test-node-1');
         expect(res.body.running).to.eql(true);
+        expect(res.body.totalSuccessfulConnections).to.eql(0);
+        expect(res.body.totalFailedConnections).to.eql(0);
+        expect(res.body.totalDroppedConnections).to.eql(0);
     });
 
     it('should get a list of nodes in a job', async () => {
