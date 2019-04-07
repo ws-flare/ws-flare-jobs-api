@@ -43,6 +43,11 @@ export class Socket extends Entity {
     disconnectTime?: string;
 
     @property({
+        type: 'date'
+    })
+    errorTime?: string;
+
+    @property({
         type: 'number',
     })
     timeToConnection?: number;

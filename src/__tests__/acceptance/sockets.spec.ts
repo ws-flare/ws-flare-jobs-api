@@ -1,6 +1,6 @@
-import { Client, expect } from '@loopback/testlab';
-import { WsFlareJobsApiApplication } from '../..';
-import { setupApplication, startMysqlContainer } from './test-helper';
+import {Client, expect} from '@loopback/testlab';
+import {WsFlareJobsApiApplication} from '../..';
+import {setupApplication, startMysqlContainer} from './test-helper';
 
 describe('Sockets', () => {
     let app: WsFlareJobsApiApplication;
@@ -22,11 +22,13 @@ describe('Sockets', () => {
     it('should create a new socket', async () => {
         const res = await client.post('/sockets').send({
             jobId: 'abc123',
-            connected: true
+            connected: true,
+            errorTime: new Date()
         }).expect(200);
 
         expect(res.body.id).not.null();
         expect(res.body.connected).to.eql(true);
+        expect(res.body.data).not.null();
     });
 
     it('should get a list of sockets', async () => {
