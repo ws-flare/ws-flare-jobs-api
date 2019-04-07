@@ -86,18 +86,20 @@ describe('Sockets', () => {
         const filter1 = {
             jobId: 'time',
             connected: true,
+            connectionTime: {neq: null},
             and: [
-                {connectionTime: {gt: '2019-04-07T11:51:12.000Z'}},
-                {connectionTime: {lt: '2019-04-07T11:51:22.000Z'}}
+                {connectionTime: {gte: '2019-04-07T11:51:12.000Z'}},
+                {connectionTime: {lte: '2019-04-07T11:51:22.000Z'}}
             ]
         };
 
         const filter2 = {
             jobId: 'time',
             connected: true,
+            connectionTime: {neq: null},
             and: [
-                {connectionTime: {gt: '2019-04-07T11:51:22.000Z'}},
-                {connectionTime: {lt: '2019-04-07T11:51:32.000Z'}}
+                {connectionTime: {gte: '2019-04-07T11:51:22.000Z'}},
+                {connectionTime: {lte: '2019-04-07T11:51:32.000Z'}}
             ]
         };
 
@@ -124,10 +126,15 @@ describe('Sockets', () => {
             connected: true,
             connectionTime: '2019-04-07T11:51:14.000Z'
         });
+        await client.post('/sockets').send({
+            jobId: 'max-time',
+            connected: true
+        });
 
         const filterMax = {
             where: {
-                jobId: 'max-time'
+                jobId: 'max-time',
+                connectionTime: {neq: null}
             },
             order: 'connectionTime DESC',
             limit: 1,
@@ -136,7 +143,8 @@ describe('Sockets', () => {
 
         const filterMin = {
             where: {
-                jobId: 'max-time'
+                jobId: 'max-time',
+                connectionTime: {neq: null}
             },
             order: 'connectionTime ASC',
             limit: 1,
