@@ -1,6 +1,6 @@
-import { Client, expect } from '@loopback/testlab';
-import { WsFlareJobsApiApplication } from '../..';
-import { setupApplication, startMysqlContainer } from './test-helper';
+import {Client, expect} from '@loopback/testlab';
+import {WsFlareJobsApiApplication} from '../..';
+import {setupApplication, startMysqlContainer} from './test-helper';
 
 describe('Jobs', () => {
     let app: WsFlareJobsApiApplication;
