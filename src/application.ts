@@ -5,12 +5,15 @@ import { RepositoryMixin } from '@loopback/repository';
 import { RestApplication } from '@loopback/rest';
 import { ServiceMixin } from '@loopback/service-proxy';
 import { MySequence } from './sequence';
+import { JobController, NodeController, SocketsController } from './controllers';
 
 export class WsFlareJobsApiApplication extends BootMixin(
     ServiceMixin(RepositoryMixin(RestApplication)),
 ) {
     constructor(options: ApplicationConfig = {}) {
         super(options);
+
+        console.log('Starting application');
 
         // Set up the custom sequence
         this.sequence(MySequence);

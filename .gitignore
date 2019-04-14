@@ -64,3 +64,4 @@ api-docs/
 /dist
 
 .idea/
+coverage/
