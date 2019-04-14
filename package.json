@@ -27,7 +27,8 @@
     "migrate": "node ./dist/migrate",
     "prestart": "npm run build",
     "start": "node .",
-    "prepublishOnly": "npm run test"
+    "prepublishOnly": "npm run test",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git"
@@ -66,6 +67,7 @@
     "@types/node": "^10.11.2",
     "@types/uuid": "^3.4.4",
     "async": "^2.6.2",
+    "coveralls": "^3.0.3",
     "mysql": "^2.16.0",
     "node-docker-api": "^1.1.22",
     "nyc": "^13.3.0",
