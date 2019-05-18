@@ -6,6 +6,10 @@ import { retry } from 'async';
 let getRandomPort = require('random-port-as-promised');
 let {Docker} = require('node-docker-api');
 
+/**
+ * Creates a new instance of the application for testing
+ * @param mysqlPort
+ */
 export async function setupApplication(mysqlPort: number): Promise<AppWithClient> {
     const config = givenHttpServerConfig();
 
@@ -33,6 +37,9 @@ export interface AppWithClient {
     client: Client;
 }
 
+/**
+ * Starts a new mysql docker container for testing
+ */
 export async function startMysqlContainer(): Promise<{ container: any, port: number }> {
     const docker = new Docker({socketPath: '/var/run/docker.sock'});
     const port = await getRandomPort();

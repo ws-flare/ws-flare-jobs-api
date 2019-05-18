@@ -12,6 +12,9 @@ import {
 
 const SequenceActions = RestBindings.SequenceActions;
 
+/**
+ * Required by the loopback framework
+ */
 export class MySequence implements SequenceHandler {
   constructor(
     @inject(SequenceActions.FIND_ROUTE) protected findRoute: FindRoute,

@@ -1,6 +1,9 @@
 import { Entity, model, property } from '@loopback/repository';
 import * as uuid from 'uuid/v4';
 
+/**
+ * Model which defines the attributes of a Socket to be stores in mysql database
+ */
 @model()
 export class Socket extends Entity {
     @property({

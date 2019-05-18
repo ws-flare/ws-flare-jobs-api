@@ -1,3 +1,6 @@
+/**
+ * Configuration for connecting to mysql
+ */
 export const config = {
     name: 'mysql',
     connector: 'mysql',

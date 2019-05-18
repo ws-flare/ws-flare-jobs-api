@@ -1,12 +1,14 @@
-import { BootMixin } from '@loopback/boot';
-import { ApplicationConfig } from '@loopback/core';
-import { RestExplorerBindings, RestExplorerComponent } from '@loopback/rest-explorer';
-import { RepositoryMixin } from '@loopback/repository';
-import { RestApplication } from '@loopback/rest';
-import { ServiceMixin } from '@loopback/service-proxy';
-import { MySequence } from './sequence';
-import { JobController, NodeController, SocketsController } from './controllers';
+import {BootMixin} from '@loopback/boot';
+import {ApplicationConfig} from '@loopback/core';
+import {RestExplorerBindings, RestExplorerComponent} from '@loopback/rest-explorer';
+import {RepositoryMixin} from '@loopback/repository';
+import {RestApplication} from '@loopback/rest';
+import {ServiceMixin} from '@loopback/service-proxy';
+import {MySequence} from './sequence';
 
+/**
+ * Bootstrap loopback service and set up dependency injection
+ */
 export class WsFlareJobsApiApplication extends BootMixin(
     ServiceMixin(RepositoryMixin(RestApplication)),
 ) {

@@ -1,6 +1,9 @@
 import { Entity, model, property } from '@loopback/repository';
 import * as uuid from 'uuid/v4';
 
+/**
+ * Model which defines the attributes of a Node to be stores in mysql database
+ */
 @model()
 export class Node extends Entity {
     @property({

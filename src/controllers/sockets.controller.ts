@@ -19,12 +19,20 @@ import {
 import {Socket} from '../models';
 import {SocketRepository} from '../repositories';
 
+/**
+ * Controller for handling /sockets endpoints
+ */
 export class SocketsController {
   constructor(
     @repository(SocketRepository)
     public socketRepository : SocketRepository,
   ) {}
 
+  /**
+   * Creates a new socket
+   *
+   * @param socket - The socket to create
+   */
   @post('/sockets', {
     responses: {
       '200': {
@@ -37,6 +45,11 @@ export class SocketsController {
     return await this.socketRepository.create(socket);
   }
 
+  /**
+   * Counts sockets stored in the database at a given filter
+   *
+   * @param where - The filter to apply
+   */
   @get('/sockets/count', {
     responses: {
       '200': {
@@ -51,6 +64,11 @@ export class SocketsController {
     return await this.socketRepository.count(where);
   }
 
+  /**
+   * Gets a list of sockets with a given filter
+   *
+   * @param filter - The filter to apply
+   */
   @get('/sockets', {
     responses: {
       '200': {
@@ -69,6 +87,12 @@ export class SocketsController {
     return await this.socketRepository.find(filter);
   }
 
+  /**
+   * Updates a socket at a given filter
+   *
+   * @param socket - The socket to update to
+   * @param where - The filter to apply
+   */
   @patch('/sockets', {
     responses: {
       '200': {
@@ -84,6 +108,11 @@ export class SocketsController {
     return await this.socketRepository.updateAll(socket, where);
   }
 
+  /**
+   * Gets a socket by id
+   *
+   * @param id - The socket id
+   */
   @get('/sockets/{id}', {
     responses: {
       '200': {
@@ -96,6 +125,12 @@ export class SocketsController {
     return await this.socketRepository.findById(id);
   }
 
+  /**
+   * Updates a socket by id
+   *
+   * @param id - The socket id
+   * @param socket - The socket to update to
+   */
   @patch('/sockets/{id}', {
     responses: {
       '204': {
@@ -110,6 +145,12 @@ export class SocketsController {
     await this.socketRepository.updateById(id, socket);
   }
 
+  /**
+   * Updates a socket by id
+   *
+   * @param id - The socket id
+   * @param socket - The socket to update to
+   */
   @put('/sockets/{id}', {
     responses: {
       '204': {
@@ -124,6 +165,11 @@ export class SocketsController {
     await this.socketRepository.replaceById(id, socket);
   }
 
+  /**
+   * Deletes a socket by id
+   *
+   * @param id - The socket id
+   */
   @del('/sockets/{id}', {
     responses: {
       '204': {
